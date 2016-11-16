@@ -13,7 +13,10 @@ Default installation list:
 
 Optional installs: 
  docker virtual machine
- sublime 2 
+ sublime 3 
 
 Installing options: 
  TBD 
+
+
+*** For Python3 upgrade: https://docs.python.org/3/howto/pyporting.html
