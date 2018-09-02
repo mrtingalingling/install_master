@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+# interstaller_venv/
 env/
 build/
 develop-eggs/
