@@ -67,15 +67,17 @@ essential_list="
 
 # Dev Stack
 dev_list="
+ mangodb
  docker
  postgres
  ipython
+ redis
+
 "
 
 # Web Stack
 web_list="
- php
- mysql
+ mariadb-server php-mysql
  nginx
  wordpress
 "
