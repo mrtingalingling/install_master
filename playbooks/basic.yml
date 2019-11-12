@@ -1,0 +1,19 @@
+---
+- name: Install rmate
+  hosts: web
+  remote_user: ting
+  become_method: sudo
+  become_user: root
+  vars:
+    http_port: 80
+    max_clients: 200
+
+# sudo wget -O /usr/local/bin/rmate
+# sudo chmod a+x /usr/local/bin/rmate
+
+  tasks:
+  - name: Install python3
+    apt: name=python3 state=latest
+    - restart abc
+
+# Create .travis.yml 

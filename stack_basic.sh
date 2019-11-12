@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This block defines the variables the user of the script needs to input
 # when deploying using this script.
 #
@@ -13,8 +13,9 @@
 IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
 
 # This updates the packages on the system from the distribution repositories.
-apt-get update
-apt-get upgrade -y
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -y autoremove
 
 # This section sets the hostname.
 echo $HOSTNAME > /etc/hostname
@@ -56,6 +57,21 @@ do
 	# Check missing packages
 	dpkg -l | grep -qw package || apt install -y package
 done
+
+# # Check if there is already a venv
+# if [ ! -f ${repo}/bin/activate ]; then
+#     echo "Install Python3 with pip3"
+#     sudo apt-get install -y python3-pip python3-venv python3-dev
+#     echo "Venv not found! Creating one now."
+#     python3 -m venv ${repo}_venv
+# fi
+
+# # Activate Venv
+# echo "Activate ${repo}_venv"
+# source ${repo}_venv/bin/activate
+# pip3 install --upgrade pip
+# git clone ${repo}
+# cat requirements.txt | xargs -n 1 pip install
 
 echo `dpkg-query -l`
 
